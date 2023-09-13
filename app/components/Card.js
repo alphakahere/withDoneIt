@@ -17,8 +17,9 @@ export default function Card({ title, subTitle, image }) {
 const styles = StyleSheet.create({
 	card: {
 		backgroundColor: "#FFF",
-		borderRadius: 15,
+		borderRadius: 20,
 		overflow: "hidden",
+		marginBottom: 20,
 	},
 	image: {
 		width: "100%",
