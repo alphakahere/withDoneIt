@@ -1,32 +1,19 @@
-import { StatusBar as ExpoStatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet } from "react-native";
-import WelcomeScreen from "./app/screens/WelcomeScreen";
-import ViewImageScreen from "./app/screens/ViewImageScreen";
-import Card from "./app/components/Card";
+import { StyleSheet } from "react-native";
 import colors from "./app/config/colors";
-import ListingScreen from "./app/screens/ListingScreen";
+import MessageScreen from "./app/screens/MessageScreen";
+import Screen from "./app/components/Screen";
 
 export default function App() {
 	return (
-		<SafeAreaView style={styles.container}>
-			<ExpoStatusBar style="auto" />
-			{/* <WelcomeScreen /> */}
-			{/* <ViewImageScreen /> */}
-			{/* <Card
-				title="Red jacket for sale!"
-				subTitle="100$"
-				image={require("./app/assets/jacket.jpg")}
-			/> */}
-			<ListingScreen />
-		</SafeAreaView>
+		<Screen>
+			<MessageScreen />
+		</Screen>
 	);
 }
 
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		// paddingTop: 50,
 		backgroundColor: colors.gray,
-		// justifyContent: "center",
 	},
 });
