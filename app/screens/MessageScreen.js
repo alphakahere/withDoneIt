@@ -12,6 +12,7 @@ const initialMessages = [
 ];
 export default function MessageScreen() {
 	const [messages, setMessages] = useState(initialMessages);
+	const [refreshing, setRefreshing] = useState(false);
 	const handleDelete = (message) => {
 		// Delete the message from messages
 		setMessages(messages?.filter((item) => message.id !== item.id));
@@ -33,6 +34,17 @@ export default function MessageScreen() {
 								onPress={() => handleDelete(item)}
 							/>
 						)}
+						refreshing={refreshing}
+						onRefresh={() => {
+							setMessages([
+								{
+									id: 3,
+									title: "T3",
+									description: "Desc 3",
+									image: require("../assets/mosh.jpg"),
+								},
+							]);
+						}}
 					/>
 				)}
 			/>
