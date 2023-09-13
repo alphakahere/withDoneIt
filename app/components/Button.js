@@ -2,9 +2,9 @@ import React from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import colors from "../config/colors";
 
-function Button({ bgColor, text }) {
+function Button({ bgColor = "primary", text }) {
 	return (
-		<TouchableOpacity style={[styles.button]}>
+		<TouchableOpacity style={[styles.button, { backgroundColor: colors[bgColor] }]}>
 			<Text style={styles.text}>{text}</Text>
 		</TouchableOpacity>
 	);
@@ -13,8 +13,7 @@ function Button({ bgColor, text }) {
 const styles = StyleSheet.create({
 	button: {
 		width: "100%",
-		backgroundColor: colors.primary,
-		borderRadius: 50,
+		borderRadius: 25,
 		padding: 14,
 		marginBottom: 10,
 	},

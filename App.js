@@ -11,13 +11,13 @@ export default function App() {
 		<SafeAreaView style={styles.container}>
 			<ExpoStatusBar style="auto" />
 			{/* <WelcomeScreen /> */}
-			<ViewImageScreen />
+			{/* <ViewImageScreen /> */}
 			{/* <Card
 				title="Red jacket for sale!"
 				subTitle="100$"
 				image={require("./app/assets/jacket.jpg")}
 			/> */}
-			{/* <ListingScreen /> */}
+			<ListingScreen />
 		</SafeAreaView>
 	);
 }

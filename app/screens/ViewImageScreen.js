@@ -5,17 +5,18 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 const ViewImageScreen = () => {
 	return (
 		<View style={{ flex: 1, paddingTop: 40, backgroundColor: colors.black }}>
-			<View
-				style={{
-					justifyContent: "space-between",
-					flexDirection: "row",
-				}}
-			>
-				<View style={styles.closeIcon}>
-					<MaterialCommunityIcons name="email" color="white" size={40} />
-				</View>
-				<View style={styles.deleteIcon}></View>
-			</View>
+			<MaterialCommunityIcons
+				name="close"
+				color="white"
+				size={40}
+				style={styles.closeIcon}
+			/>
+			<MaterialCommunityIcons
+				name="trash-can-outline"
+				color="white"
+				size={40}
+				style={styles.deleteIcon}
+			/>
 			<Image
 				source={require("../assets/chair.jpg")}
 				resizeMode="contain"
@@ -31,16 +32,10 @@ const styles = StyleSheet.create({
 		flex: 1,
 	},
 	closeIcon: {
-		backgroundColor: colors.primary,
-		width: 50,
-		height: 50,
-		justifyContent: "center",
-		alignItems: "center",
+		position: "absolute",
+		top: 30,
+		left: 20,
 	},
-	deleteIcon: {
-		backgroundColor: colors.secondary,
-		width: 50,
-		height: 50,
-	},
+	deleteIcon: { position: "absolute", top: 30, right: 20 },
 });
 export default ViewImageScreen;

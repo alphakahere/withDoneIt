@@ -17,16 +17,15 @@ export default function Card({ title, subTitle, image }) {
 const styles = StyleSheet.create({
 	card: {
 		backgroundColor: "#FFF",
-		borderRadius: 10,
+		borderRadius: 15,
+		overflow: "hidden",
 	},
 	image: {
 		width: "100%",
 		height: 200,
-		borderTopLeftRadius: 10,
-		borderTopRightRadius: 10,
 	},
 	cardInfoContainer: {
-		padding: 10,
+		padding: 20,
 	},
 	cardTitle: {
 		fontSize: 14,
@@ -35,7 +34,7 @@ const styles = StyleSheet.create({
 	},
 	subTitle: {
 		fontSize: 14,
-		fontWeight: "500",
+		fontWeight: "bold",
 		color: colors.secondary,
 	},
 });

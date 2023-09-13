@@ -13,12 +13,12 @@ const WelcomeScreen = () => {
 		>
 			<View style={styles.logoContainer}>
 				<Image source={require("../assets/logo-red.png")} style={styles.logo} />
-				<Text>Sell what you don't need</Text>
+				<Text style={styles.tagline}>Sell what you don't need</Text>
 			</View>
-			{/* <View style={styles.loginButton} color="#fc5c65" />
-			<View style={styles.registerButton} color="#4ECDC4" /> */}
-			<Button text="Login" />
-			<Button text="Register" />
+			<View style={styles.buttonsContainer}>
+				<Button text="Login" />
+				<Button text="Register" bgColor="secondary" />
+			</View>
 		</ImageBackground>
 	);
 };
@@ -38,15 +38,14 @@ const styles = StyleSheet.create({
 		width: 80,
 		height: 80,
 	},
-	loginButton: {
-		backgroundColor: colors.primary,
-		width: "100%",
-		height: 70,
+	tagline: {
+		fontSize: 24,
+		fontWeight: "600",
+		paddingVertical: 20,
 	},
-	registerButton: {
-		backgroundColor: colors.secondary,
+	buttonsContainer: {
+		padding: 20,
 		width: "100%",
-		height: 70,
 	},
 });
 export default WelcomeScreen;

@@ -1,6 +1,7 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import colors from "../config/colors";
+import ListingItem from "../components/ListingItem";
 
 export default function ListingScreen() {
 	return (
@@ -10,22 +11,16 @@ export default function ListingScreen() {
 				resizeMode="cover"
 				style={styles.image}
 			/>
-			<View style={{ padding: 10 }}>
+			<View style={{ padding: 20 }}>
 				<View style={styles.cardInfoContainer}>
 					<Text style={styles.cardTitle}>Red jacket for sale!</Text>
 					<Text style={styles.subTitle}>100$</Text>
 				</View>
-				<View style={styles.profileContainer}>
-					<Image
-						source={require("../assets/mosh.jpg")}
-						resizeMode="contain"
-						style={styles.avatar}
-					/>
-					<View>
-						<Text>Mosh Hamedani</Text>
-						<Text>5 Listings</Text>
-					</View>
-				</View>
+				<ListingItem
+					image={require("../assets/mosh.jpg")}
+					title="Alpha Diallo"
+					subTitle="5 Listings"
+				/>
 			</View>
 		</View>
 	);
@@ -51,14 +46,5 @@ const styles = StyleSheet.create({
 		fontSize: 14,
 		fontWeight: "500",
 		color: colors.secondary,
-	},
-	profileContainer: {
-		flexDirection: "row",
-		gap: 5,
-	},
-	avatar: {
-		width: 60,
-		height: 60,
-		borderRadius: 100,
 	},
 });
