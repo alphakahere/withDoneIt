@@ -1,5 +1,5 @@
-import { Image, StyleSheet } from "react-native";
-import React, { useState } from "react";
+import { StyleSheet } from "react-native";
+import React from "react";
 import Screen from "../components/Screen";
 import * as Yup from "yup";
 import { AppForm, AppFormField, SubmitButton, AppFormPicker as Picker } from "../components/forms";
@@ -18,8 +18,6 @@ const categories = [
 ];
 
 export default function ListingEditScreen() {
-	const [categorie, setCategorie] = useState(categories[0]);
-
 	return (
 		<Screen style={styles.container}>
 			<AppForm
@@ -42,8 +40,14 @@ export default function ListingEditScreen() {
 						autoCorrect={false}
 						name="price"
 						maxLength={8}
+						width={120}
 					/>
-					<Picker placeholder="Category" items={categories} name="category" />
+					<Picker
+						placeholder="Category"
+						items={categories}
+						name="category"
+						width="50%"
+					/>
 					<AppFormField
 						placeholder="Description"
 						keyboardType="default"

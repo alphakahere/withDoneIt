@@ -6,7 +6,14 @@ import AppText from "./AppText";
 import AppPickerItem from "./AppPickerItem";
 import { useState } from "react";
 
-export default function AppPicker({ icon, placeholder, categories, selectedItem, onSelectedItem }) {
+export default function AppPicker({
+	icon,
+	placeholder,
+	categories,
+	selectedItem,
+	onSelectedItem,
+	width = "100%",
+}) {
 	const [isModalVisible, setIsModalVisible] = useState(false);
 	const toggleVisible = () => {
 		setIsModalVisible((isModalVisible) => !isModalVisible);
@@ -15,7 +22,7 @@ export default function AppPicker({ icon, placeholder, categories, selectedItem,
 	return (
 		<>
 			<TouchableWithoutFeedback onPress={toggleVisible}>
-				<View style={styles.container}>
+				<View style={[styles.container, { width: width }]}>
 					<MaterialCommunityIcons
 						name={icon}
 						size={20}
@@ -23,13 +30,9 @@ export default function AppPicker({ icon, placeholder, categories, selectedItem,
 						style={styles.icon}
 					/>
 					{selectedItem ? (
-						<AppText style={styles.text}>
-							{selectedItem.label}
-						</AppText>
+						<AppText style={styles.text}>{selectedItem.label}</AppText>
 					) : (
-						<AppText style={styles.placeholder}>
-							{placeholder}
-						</AppText>
+						<AppText style={styles.placeholder}>{placeholder}</AppText>
 					)}
 					<MaterialCommunityIcons
 						name="chevron-down"
@@ -68,7 +71,7 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 	},
 	icon: { marginRight: 10 },
-	placeholder: {color: colors.medium},
+	placeholder: { color: colors.medium, flex: 1 },
 	text: {
 		flex: 1,
 	},

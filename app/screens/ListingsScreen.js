@@ -26,7 +26,7 @@ export default function ListingsScreen() {
 				renderItem={({ item }) => (
 					<Card title={item.title} image={item.image} subTitle={item.price} />
 				)}
-			></FlatList>
+			/>
 		</Screen>
 	);
 }

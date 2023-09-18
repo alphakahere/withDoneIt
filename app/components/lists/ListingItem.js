@@ -3,8 +3,9 @@ import React from "react";
 import colors from "../../config/colors";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-const ListingItem = ({ image, title, subTitle, onPress, renderRightActions }) => {
+const ListingItem = ({ image, title, subTitle, onPress, renderRightActions, numberOfLines }) => {
 	return (
 		<GestureHandlerRootView>
 			<Swipeable renderRightActions={renderRightActions}>
@@ -15,22 +16,39 @@ const ListingItem = ({ image, title, subTitle, onPress, renderRightActions }) =>
 							resizeMode="contain"
 							style={styles.avatar}
 						/>
-						<View>
+						<View style={styles.detailsContainer}>
 							<Text style={styles.title}>{title}</Text>
-							<Text style={styles.subTitle}>{subTitle}</Text>
+							<Text
+								style={styles.subTitle}
+								numberOfLines={numberOfLines}
+							>
+								{subTitle}
+							</Text>
 						</View>
+						<MaterialCommunityIcons name="chevron-right" size={20} />
 					</View>
 				</TouchableHighlight>
 			</Swipeable>
 		</GestureHandlerRootView>
 	);
 };
-
+{
+	/* <ListingItem
+				image={require("./app/assets/mosh.jpg")}
+				title="T1"
+				subTitle="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id possimus veniam aperiam nisi odit veritatis voluptates reiciendis, repudiandae recusandae velit ad nemo. Illum vitae impedit ipsum laboriosam illo et corrupti?"
+				numberOfLines={2}
+			/> */
+}
 const styles = StyleSheet.create({
 	container: {
+		alignItems: "center",
 		flexDirection: "row",
 		gap: 5,
 		padding: 10,
+	},
+	detailsContainer: {
+		flex: 1,
 	},
 	title: {
 		fontSize: 14,
