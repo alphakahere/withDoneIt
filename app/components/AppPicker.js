@@ -13,6 +13,8 @@ export default function AppPicker({
 	selectedItem,
 	onSelectedItem,
 	width = "100%",
+	PickerItemComponent = AppPickerItem,
+	numberOfColumns = 1,
 }) {
 	const [isModalVisible, setIsModalVisible] = useState(false);
 	const toggleVisible = () => {
@@ -46,12 +48,14 @@ export default function AppPicker({
 				<FlatList
 					data={categories}
 					keyExtractor={(categorie) => categorie.value.toString()}
+					numColumns={numberOfColumns}
 					renderItem={({ item }) => (
-						<AppPickerItem
+						<PickerItemComponent
 							label={item.label}
 							onPress={() => {
 								onSelectedItem(item), toggleVisible();
 							}}
+							item={item}
 						/>
 					)}
 				/>

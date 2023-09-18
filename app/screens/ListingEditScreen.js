@@ -3,6 +3,7 @@ import React from "react";
 import Screen from "../components/Screen";
 import * as Yup from "yup";
 import { AppForm, AppFormField, SubmitButton, AppFormPicker as Picker } from "../components/forms";
+import CategoryPickerItem from "../components/CategoryPickerItem";
 
 const validationSchema = Yup.object().shape({
 	title: Yup.string().required().min(1).label("Title"),
@@ -11,10 +12,10 @@ const validationSchema = Yup.object().shape({
 	category: Yup.object().nullable().label("Category"),
 });
 const categories = [
-	{ label: "Furniture", value: 1 },
-	{ label: "Clothing", value: 2 },
-	{ label: "Cameras", value: 3 },
-	{ label: "Computer", value: 4 },
+	{ label: "Furniture", value: 1, bgColor: "red", icon: "apps" },
+	{ label: "Clothing", value: 2, bgColor: "blue", icon: "email" },
+	{ label: "Cameras", value: 3, bgColor: "yellow", icon: "apps" },
+	{ label: "Computer", value: 4, bgColor: "purple", icon: "apps" },
 ];
 
 export default function ListingEditScreen() {
@@ -47,6 +48,8 @@ export default function ListingEditScreen() {
 						items={categories}
 						name="category"
 						width="50%"
+						PickerItemComponent={CategoryPickerItem}
+						numberOfColumns={3}
 					/>
 					<AppFormField
 						placeholder="Description"
