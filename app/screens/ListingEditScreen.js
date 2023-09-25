@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { AppForm, AppFormField, SubmitButton, AppFormPicker as Picker } from "../components/forms";
 import CategoryPickerItem from "../components/CategoryPickerItem";
 import FormImagePicker from "../components/forms/FormImagePicker";
+import useLocation from "../hooks/useLocation";
 
 const validationSchema = Yup.object().shape({
 	title: Yup.string().required().min(1).label("Title"),
@@ -15,55 +16,55 @@ const validationSchema = Yup.object().shape({
 });
 const categories = [
 	{
-		backgroundColor: "#fc5c65",
+		bgColor: "#fc5c65",
 		icon: "floor-lamp",
 		label: "Furniture",
 		value: 1,
 	},
 	{
-		backgroundColor: "#fd9644",
+		bgColor: "#fd9644",
 		icon: "car",
 		label: "Cars",
 		value: 2,
 	},
 	{
-		backgroundColor: "#fed330",
+		bgColor: "#fed330",
 		icon: "camera",
 		label: "Cameras",
 		value: 3,
 	},
 	{
-		backgroundColor: "#26de81",
+		bgColor: "#26de81",
 		icon: "cards",
 		label: "Games",
 		value: 4,
 	},
 	{
-		backgroundColor: "#2bcbba",
+		bgColor: "#2bcbba",
 		icon: "shoe-heel",
 		label: "Clothing",
 		value: 5,
 	},
 	{
-		backgroundColor: "#45aaf2",
+		bgColor: "#45aaf2",
 		icon: "basketball",
 		label: "Sports",
 		value: 6,
 	},
 	{
-		backgroundColor: "#4b7bec",
+		bgColor: "#4b7bec",
 		icon: "headphones",
 		label: "Movies & Music",
 		value: 7,
 	},
 	{
-		backgroundColor: "#a55eea",
+		bgColor: "#a55eea",
 		icon: "book-open-variant",
 		label: "Books",
 		value: 8,
 	},
 	{
-		backgroundColor: "#778ca3",
+		bgColor: "#778ca3",
 		icon: "application",
 		label: "Other",
 		value: 9,
@@ -71,6 +72,8 @@ const categories = [
 ];
 
 export default function ListingEditScreen() {
+	const location = useLocation();
+
 	return (
 		<Screen style={styles.container}>
 			<AppForm
@@ -81,7 +84,7 @@ export default function ListingEditScreen() {
 					category: null,
 					images: [],
 				}}
-				onSubmit={(values) => console.log(values)}
+				onSubmit={(values) => console.log({ values, location })}
 				validationSchema={validationSchema}
 			>
 				<>

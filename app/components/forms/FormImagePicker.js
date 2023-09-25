@@ -8,7 +8,6 @@ export default function FormImagePicker({ name }) {
 	const { touched, errors, setFieldValue, values } = useFormikContext();
 
 	const imageUris = values[name];
-	console.log({ imageUris });
 
 	const onAddImage = (uri) => {
 		setFieldValue(name, [...imageUris, uri]);
