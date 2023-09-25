@@ -1,8 +1,8 @@
 import { FlatList } from "react-native";
 import React, { useState } from "react";
-import ListingItem from "../components/ListingItem";
-import ListingItemSepartor from "../components/ListingItemSepartor";
-import ListingItemDeleteAction from "../components/ListingItemDeleteAction";
+import ListingItem from "../components/lists/ListingItem";
+import ListingItemDeleteAction from "../components/lists/ListingItemDeleteAction";
+import ListingItemSepartor from "../components/lists/ListingItemSepartor";
 const initialMessages = [
 	{ id: 1, title: "T1", description: "Desc 1", image: require("../assets/mosh.jpg") },
 	{ id: 2, title: "T2", description: "Desc 2", image: require("../assets/mosh.jpg") },

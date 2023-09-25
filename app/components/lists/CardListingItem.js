@@ -2,15 +2,22 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import colors from "../../config/colors";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
-export default function CardListingItem({ title, color = "primary", iconName, style }) {
+export default function CardListingItem({ title, color = "primary", iconName, style, onPress }) {
 	return (
-		<View style={[styles.container, style]}>
-			<View style={[styles.iconContainer, { backgroundColor: colors[color] }]}>
-				<MaterialCommunityIcons name={iconName} size={20} color={colors.white} />
+		<TouchableWithoutFeedback onPress={onPress}>
+			<View style={[styles.container, style]}>
+				<View style={[styles.iconContainer, { backgroundColor: colors[color] }]}>
+					<MaterialCommunityIcons
+						name={iconName}
+						size={20}
+						color={colors.white}
+					/>
+				</View>
+				<Text style={styles.title}>{title}</Text>
 			</View>
-			<Text style={styles.title}>{title}</Text>
-		</View>
+		</TouchableWithoutFeedback>
 	);
 }
 

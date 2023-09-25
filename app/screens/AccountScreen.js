@@ -4,8 +4,9 @@ import Screen from "../components/Screen";
 import colors from "../config/colors";
 import CardListingItem from "../components/lists/CardListingItem";
 import ListingItem from "../components/lists/ListingItem";
+import routes from "../navigation/routes";
 
-export default function AccountScreen() {
+export default function AccountScreen({ navigation }) {
 	return (
 		<Screen>
 			<View style={styles.container}>
@@ -16,7 +17,12 @@ export default function AccountScreen() {
 				/>
 			</View>
 			<CardListingItem title="My Listings" iconName="format-list-bulleted" />
-			<CardListingItem title="My Messages" iconName="email" color="secondary" />
+			<CardListingItem
+				title="My Messages"
+				iconName="email"
+				color="secondary"
+				onPress={() => navigation.navigate(routes.MESSAGES)}
+			/>
 			<CardListingItem
 				title="Log Out"
 				iconName="logout"

@@ -29,7 +29,9 @@ export default function ListingsScreen({ navigation }) {
 						title={item.title}
 						image={item.image}
 						subTitle={item.price}
-						onPress={() => navigation.navigate(routes.LISTING_DETAILS)}
+						onPress={() =>
+							navigation.navigate(routes.LISTING_DETAILS, item)
+						}
 					/>
 				)}
 			/>
