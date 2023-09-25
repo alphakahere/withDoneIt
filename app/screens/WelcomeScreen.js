@@ -1,25 +1,38 @@
 import React from "react";
 import { ImageBackground, StyleSheet, Text, View, Image } from "react-native";
-import colors from "../config/colors";
 import Button from "../components/Button";
+import routes from "../navigation/routes";
+import Screen from "../components/Screen";
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation }) => {
 	return (
-		<ImageBackground
-			source={require("../assets/background.jpg")}
-			resizeMode="cover"
-			style={styles.coverImage}
-			blurRadius={5}
-		>
-			<View style={styles.logoContainer}>
-				<Image source={require("../assets/logo-red.png")} style={styles.logo} />
-				<Text style={styles.tagline}>Sell what you don't need</Text>
-			</View>
-			<View style={styles.buttonsContainer}>
-				<Button text="Login" />
-				<Button text="Register" bgColor="secondary" />
-			</View>
-		</ImageBackground>
+		<Screen>
+			<ImageBackground
+				source={require("../assets/background.jpg")}
+				resizeMode="cover"
+				style={styles.coverImage}
+				blurRadius={5}
+			>
+				<View style={styles.logoContainer}>
+					<Image
+						source={require("../assets/logo-red.png")}
+						style={styles.logo}
+					/>
+					<Text style={styles.tagline}>Sell what you don't need</Text>
+				</View>
+				<View style={styles.buttonsContainer}>
+					<Button
+						text="Login"
+						onPress={() => navigation.navigate(routes.LOGIN)}
+					/>
+					<Button
+						text="Register"
+						bgColor="secondary"
+						onPress={() => navigation.navigate(routes.REGISTER)}
+					/>
+				</View>
+			</ImageBackground>
+		</Screen>
 	);
 };
 const styles = StyleSheet.create({
