@@ -4,6 +4,8 @@ import Screen from "../components/Screen";
 import * as Yup from "yup";
 import { AppForm, AppFormField, SubmitButton, AppFormPicker as Picker } from "../components/forms";
 import CategoryPickerItem from "../components/CategoryPickerItem";
+import ImageInput from "../components/ImageInput";
+import { useState } from "react";
 
 const validationSchema = Yup.object().shape({
 	title: Yup.string().required().min(1).label("Title"),
@@ -19,6 +21,8 @@ const categories = [
 ];
 
 export default function ListingEditScreen() {
+	const [imageUri, setImageUri] = useState(null);
+
 	return (
 		<Screen style={styles.container}>
 			<AppForm
@@ -27,6 +31,7 @@ export default function ListingEditScreen() {
 				validationSchema={validationSchema}
 			>
 				<>
+					<ImageInput imageUri={imageUri} onChangeImage={setImageUri} />
 					<AppFormField
 						placeholder="Title"
 						keyboardType="default"
