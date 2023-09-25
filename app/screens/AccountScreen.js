@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import Screen from "../components/Screen";
-import ListingItem from "../components/ListingItem";
 import colors from "../config/colors";
-import CardListingItem from "../components/CardListingItem";
+import CardListingItem from "../components/lists/CardListingItem";
+import ListingItem from "../components/lists/ListingItem";
 
 export default function AccountScreen() {
 	return (

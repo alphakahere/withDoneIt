@@ -2,6 +2,7 @@ import { FlatList, StyleSheet } from "react-native";
 import React from "react";
 import Card from "../components/Card";
 import Screen from "../components/Screen";
+import routes from "../navigation/routes";
 const listings = [
 	{
 		id: 1,
@@ -10,13 +11,13 @@ const listings = [
 		image: require("../assets/jacket.jpg"),
 	},
 	{
-		id: 1,
+		id: 2,
 		title: "Couch in great condition",
 		price: "$1000",
 		image: require("../assets/jacket.jpg"),
 	},
 ];
-export default function ListingsScreen() {
+export default function ListingsScreen({ navigation }) {
 	return (
 		<Screen>
 			<FlatList
@@ -24,7 +25,12 @@ export default function ListingsScreen() {
 				data={listings}
 				keyExtractor={(item) => item?.id.toString()}
 				renderItem={({ item }) => (
-					<Card title={item.title} image={item.image} subTitle={item.price} />
+					<Card
+						title={item.title}
+						image={item.image}
+						subTitle={item.price}
+						onPress={() => navigation.navigate(routes.LISTING_DETAILS)}
+					/>
 				)}
 			/>
 		</Screen>
