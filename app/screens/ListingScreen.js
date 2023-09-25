@@ -3,18 +3,15 @@ import React from "react";
 import colors from "../config/colors";
 import ListingItem from "../components/lists/ListingItem";
 
-export default function ListingScreen() {
+export default function ListingScreen({ route }) {
+	const listing = route.params;
 	return (
 		<View>
-			<Image
-				source={require("../assets/jacket.jpg")}
-				resizeMode="cover"
-				style={styles.image}
-			/>
+			<Image source={listing.image} resizeMode="cover" style={styles.image} />
 			<View style={{ padding: 20 }}>
 				<View style={styles.cardInfoContainer}>
-					<Text style={styles.cardTitle}>Red jacket for sale!</Text>
-					<Text style={styles.subTitle}>100$</Text>
+					<Text style={styles.cardTitle}>{listing.title}</Text>
+					<Text style={styles.subTitle}>{listing.price}</Text>
 				</View>
 				<ListingItem
 					image={require("../assets/mosh.jpg")}
