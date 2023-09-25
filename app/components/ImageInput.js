@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import * as ImagePicker from "expo-image-picker";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import colors from "../config/colors";
-import { useState } from "react";
 
 export default function ImageInput({ imageUri, onChangeImage }) {
 	useEffect(() => {

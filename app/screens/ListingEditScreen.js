@@ -6,6 +6,7 @@ import { AppForm, AppFormField, SubmitButton, AppFormPicker as Picker } from "..
 import CategoryPickerItem from "../components/CategoryPickerItem";
 import ImageInput from "../components/ImageInput";
 import { useState } from "react";
+import ImageInputList from "../components/ImageInputList";
 
 const validationSchema = Yup.object().shape({
 	title: Yup.string().required().min(1).label("Title"),
@@ -21,7 +22,16 @@ const categories = [
 ];
 
 export default function ListingEditScreen() {
-	const [imageUri, setImageUri] = useState(null);
+	const [imageUris, setImageUris] = useState([]);
+	console.log({ imageUris });
+
+	const onAddImage = (uri) => {
+		setImageUris([...imageUris, uri]);
+	};
+
+	const onRemoveImage = (uri) => {
+		setImageUris(imageUris.filter((imageUri) => imageUri !== uri));
+	};
 
 	return (
 		<Screen style={styles.container}>
@@ -31,7 +41,11 @@ export default function ListingEditScreen() {
 				validationSchema={validationSchema}
 			>
 				<>
-					<ImageInput imageUri={imageUri} onChangeImage={setImageUri} />
+					<ImageInputList
+						imageUris={imageUris}
+						onAddImage={onAddImage}
+						onRemoveImage={onRemoveImage}
+					/>
 					<AppFormField
 						placeholder="Title"
 						keyboardType="default"
