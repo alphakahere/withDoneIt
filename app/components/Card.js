@@ -2,11 +2,15 @@ import { Image, StyleSheet, Text, TouchableWithoutFeedback, View } from "react-n
 import React from "react";
 import colors from "../config/colors";
 
-export default function Card({ title, subTitle, image, onPress }) {
+export default function Card({ title, subTitle, imageUrl, onPress }) {
 	return (
 		<TouchableWithoutFeedback onPress={onPress}>
 			<View style={styles.card}>
-				<Image source={image} resizeMode="cover" style={styles.image} />
+				<Image
+					source={{ uri: imageUrl }}
+					resizeMode="contain"
+					style={styles.image}
+				/>
 				<View style={styles.cardInfoContainer}>
 					<Text style={styles.cardTitle}>{title}</Text>
 					<Text style={styles.subTitle}>{subTitle}</Text>

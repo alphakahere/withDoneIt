@@ -7,7 +7,7 @@ export default function ListingScreen({ route }) {
 	const listing = route.params;
 	return (
 		<View>
-			<Image source={listing.image} resizeMode="cover" style={styles.image} />
+			<Image source={{ uri: listing.image }} resizeMode="cover" style={styles.image} />
 			<View style={{ padding: 20 }}>
 				<View style={styles.cardInfoContainer}>
 					<Text style={styles.cardTitle}>{listing.title}</Text>
