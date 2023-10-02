@@ -1,9 +1,11 @@
 import client from "./client";
 
-const endpoint = "/products?limit=24";
+const endpoint = "/products";
 
-const getListings = () => client.get(endpoint);
+const getListings = () => client.get(`${endpoint}?limit=10`);
+const addListing = (data) => client.post(endpoint, data);
 
 export default {
 	getListings,
+	addListing,
 };
